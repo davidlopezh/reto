@@ -2,21 +2,17 @@
 
 var React = require('react', 'PropTypes');
 var ReactNative = require('react-native');
-var login = require('./login');
-
-
+var login = require('./1.3');
+var Text = require('react-native');
 var styles = ReactNative.StyleSheet.create({
   text: {
-    color: 'black',
-    backgroundColor: 'white',
     fontSize: 30,
-    margin: 80
+    margin: 0
   },
   container: {
     flex: 1
   }
 });
-
 
 class reto_universidad extends React.Component {
 render() {

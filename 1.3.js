@@ -10,37 +10,55 @@ import {
   ActivityIndicator,
   Image,
 } from 'react-native';
-
 import Icon from 'react-native-vector-icons/FontAwesome';
-class registry extends Component {
-  render() {
+
+
+var registry = React.createClass({
+
+  _onPressButtonPOST: function() {
+    fetch('http://reto-enarm2.mellow.online:80/api/Users', {
+  method: 'POST',
+  headers: {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+  email:"user1003@hotmail.com",
+  password:"password",
+  })
+  })
+  console.warn();
+      },
+
+  render: function(){
     console.log('registry.render');
     return (
+    //  <ReactNative.NavigatorIOS
+    //  title: 'Registro' />
 
       <View style={styles.container}>
 <Image source={require('./Resources/casa.png')} style={styles.image}/>
 <View style={styles.buttons}>
   <View style={styles.btnWrapper}>
   </View>
-  <Icon
-  name="user-o"
-  borderColor='rgb(20, 116, 235)'
-  size={15}
-  />
 
   <View style={styles.bigButton}>
-    <TextInput style={styles.button} placeholder='Usuario'/>
+  <View style={styles.button1}>
+    <TextInput  id="user"  style={styles.button2} placeholder='Usuario'/>
+  </View>
   </View>
 
   <View style={styles.bigButton}>
-    <TextInput style={styles.button} placeholder='Contraseña'/>
+  <View style={styles.button1}>
+    <TextInput secureTextEntry={true} id="password" style={styles.button2} placeholder='Contraseña'/>
+  </View>
   </View>
 
   <View style={styles.bigButton}>
-    <TextInput style={styles.button} placeholder='Repite la contraseña'/>
+    <TextInput  secureTextEntry={true} id="password2" style={styles.button} placeholder='Repite la contraseña'/>
   </View>
 
-  <TouchableHighlight style={styles.buttonc}>
+  <TouchableHighlight onPress={this._onPressButtonPOST}  style={styles.buttonc}>
    <Text style={styles.buttonText}>Continuar</Text>
   </TouchableHighlight>
 
@@ -54,11 +72,11 @@ class registry extends Component {
 </View>
 );
 }
-}
+});
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'rgb(242, 242, 242)',
+    backgroundColor:'#fafafa',
     position: 'absolute',
     left: 0,
     right: 0,
@@ -109,6 +127,20 @@ justifyContent: 'space-between'
     textAlign: 'center',
     fontSize: 14,
     minHeight:37
+  },
+    button1: {
+      backgroundColor: 'white',
+      borderWidth: 1,
+      borderRadius: 8,
+      borderBottomWidth:0,
+      borderColor: 'rgb(198, 199, 198)',
+      minHeight:37
+
+  },
+  button2: {
+      fontSize: 14,
+      minHeight:37,
+      textAlign: 'center',
   },
 
   buttonc: {

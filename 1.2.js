@@ -10,11 +10,9 @@ import {
   ActivityIndicator,
   Image,
   Navigator,
-  TabBarIOS,
-  TabBarItemIOS
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-//var FloatLabelTextInput = require('react-native-floating-label-text-input');
+
 
 
 
@@ -22,6 +20,11 @@ class login extends Component {
 render() {
 console.log('login.render');
 return (
+
+  //<ReactNative.NavigatorIOS
+  //    title: 'Iniciar Sesión' />
+
+
 <View style={styles.container}>
 <Image source={require('./Resources/casa.png')} style={styles.image}/>
 <View style={styles.buttons}>
@@ -47,6 +50,9 @@ return (
 </Icon.Button>
 </View>
 
+<Text style={styles.Textf}>¿Aún no tienes cuenta? <Text style={styles.Textf1}> Regístrate </Text></Text>
+
+
 </View>
 </View>
 );
@@ -55,7 +61,7 @@ return (
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'rgb(242, 242, 242)',
+    backgroundColor: '#fafafa',
     position: 'absolute',
     left: 0,
     right: 0,
@@ -97,7 +103,23 @@ justifyContent: 'space-between'
   bigButton: {
     padding:0
   },
+  Textf: {
+    padding:0,
+    fontSize: 14,
+    color: 'black',
+    alignSelf: 'stretch',
+    textAlign: 'center',
+      marginTop:150
+  },
 
+  Textf1: {
+    padding:0,
+    fontSize: 14,
+    color: 'rgb(20, 116, 235)',
+    alignSelf: 'stretch',
+    textAlign: 'center',
+      marginTop:150
+  },
   button: {
     backgroundColor: 'white',
     borderWidth: 1,
